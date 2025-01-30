@@ -140,7 +140,7 @@ WITH ranked_provinces AS (
   SELECT
     provinsi,
     -- Memberi Rank pada provinsi berdasarkan rata-rata rating provinsi
-    RANK() OVER (ORDER BY AVG(transaction_ratings) DESC) AS province_average_ratings_rank
+    RANK() OVER (ORDER BY AVG(rating_transaksi) DESC) AS province_average_ratings_rank
   FROM 
     rakamin-kf-analytics-448909.kimia_farma.analysis_table
   GROUP BY 
