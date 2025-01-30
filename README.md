@@ -1,74 +1,73 @@
 # Kimia Farma Big Data Analytics Project Based Internship Program Final Task: Performance Analytics Kimia Farma Business Year 2020-2023
-Dokumentasi final task
 
 ## Overview
 Project ini merupakan bagian dari tugas Big Data Analytics Intern di Kimia Farma untuk mengevaluasi kinerja bisnis perusahaan periode 2020-2023.
 
 ## Dataset
 ### kf_final_transaction.csv (https://drive.google.com/file/d/1iDOBdKZ4-kkLhpklQWWrsFvACtI7MCz3/view?usp=sharing)
-● transaction_id: kode id transaksi, 
-● product_id : kode produk obat, 
-● branch_id: kode id cabang Kimia Farma, 
-● customer_name: nama customer yang melakukan transaksi, 
-● date: tanggal transaksi dilakukan, 
-● price: harga obat, 
-● discount_percentage: Persentase diskon yang diberikan pada obat, 
-● rating: penilaian konsumen terhadap transaksi yang dilakukan.
+* transaction_id: kode id transaksi, 
+* product_id : kode produk obat, 
+* branch_id: kode id cabang Kimia Farma, 
+* customer_name: nama customer yang melakukan transaksi, 
+* date: tanggal transaksi dilakukan, 
+* price: harga obat, 
+* discount_percentage: Persentase diskon yang diberikan pada obat, 
+* rating: penilaian konsumen terhadap transaksi yang dilakukan.
 ### kf_product.csv (https://drive.google.com/file/d/1739wO7BwtVStHCA4Dcj9xGhlc_blBNbT/view?usp=sharing)
-● product_id: kode produk obat, 
-● product_name: nama produk obat, 
-● product_category: kategori produk obat, 
-● price: harga obat
+* product_id: kode produk obat, 
+* product_name: nama produk obat, 
+* product_category: kategori produk obat, 
+* price: harga obat
 ### kf_inventory.csv (https://drive.google.com/file/d/1ihtG2t0V1AO0IAGkGwQaqtba6AxDEKDI/view?usp=sharing)
-● inventory_ID: kode inventory produk obat,
-● branch_id: kode id cabang Kimia Farma,
-● product_id: kode id produk obat,
-● product_name: nama produk obat,
-● opname_stock: jumlah stok produk obat.
+* inventory_ID: kode inventory produk obat,
+* branch_id: kode id cabang Kimia Farma,
+* product_id: kode id produk obat,
+* product_name: nama produk obat,
+* opname_stock: jumlah stok produk obat.
 ### kf_kantor_cabang.csv (https://drive.google.com/file/d/1vzaasqIeXqqe_jI99dNLaa8nxnoe9OWW/view?usp=sharing)
-● branch_id: kode id cabang Kimia Farma,
-● branch_category: kategori cabang Kimia Farma,
-● branch_name: nama kantor cabang Kimia Farma,
-● kota: kota cabang Kimia Farma,
-● provinsi: provinsi cabang Kimia Farma,
-● rating: penilaian konsumen terhadap cabang Kimia Farma
+* branch_id: kode id cabang Kimia Farma,
+* branch_category: kategori cabang Kimia Farma,
+* branch_name: nama kantor cabang Kimia Farma,
+* kota: kota cabang Kimia Farma,
+* provinsi: provinsi cabang Kimia Farma,
+* rating: penilaian konsumen terhadap cabang Kimia Farma
 
 ## Project Challenges
 ### 1. Data Import
 Challenge pertama dalam proyek ini adalah mengimpor empat dataset yang telah disediakan. Berikut adalah tahap-tahap yang dilakukan untuk challenge ini:
-1.1. Download dataset dari link yang telah disediakan,
-1.2. Klik “Create dataset” pada proyek di BigQuery, lalu masukan Daset ID sebelum menekan tombol “Create Dataset”.,
-1.3. Klik “Create table” pada dataset, lalu klik “Create table from” dan pilih “Upload” pada dropdown “Create table from”,
-1.4. Pilih data yang ingin di-upload (File Format akan berubah secara otomatis) dan beri nama pada tabel, lalu tekan “Create Table”.
+1. Download dataset dari link yang telah disediakan,
+2. Klik “Create dataset” pada proyek di BigQuery, lalu masukan Daset ID sebelum menekan tombol “Create Dataset”.,
+3. Klik “Create table” pada dataset, lalu klik “Create table from” dan pilih “Upload” pada dropdown “Create table from”,
+4. Pilih data yang ingin di-upload (File Format akan berubah secara otomatis) dan beri nama pada tabel, lalu tekan “Create Table”.
 
 ### 2. Tabel Analisa
 Untuk memudahkan analisa, tabel-tabel yang telah diimpor digabungkan menjadi satu tabel yang tidak hanya berisi kolom-kolom tabel yang digabungkan, tetapi juga kolom yang berisi hasil dari kalkulasi kolom-kolom tersebut. Hal ini dicapai dengan melakukan JOIN terhadap tabel-tabel.
 Berikut adalah kolom-kolom pada tabel analisa yang dibutuhkan untuk memenuhi challenge:
-● transaction_id : kode id transaksi, 
-● date : tanggal transaksi dilakukan, 
-● branch_id : kode id cabang Kimia Farma, 
-● branch_name : nama cabang Kimia Farma, 
-● kota : kota cabang Kimia Farma, 
-● provinsi : provinsi cabang Kimia Farma,
-● rating_cabang : penilaian konsumen terhadap cabang Kimia Farma
-● customer_name : Nama customer yang melakukan transaksi,
-● product_id : kode product obat,
-● product_name : nama obat, 
-● actual_price : harga obat, 
-● discount_percentage : Persentase diskon yang diberikan pada obat, 
-● persentase_gross_laba : Persentase laba yang seharusnya diterima dari obat dengan ketentuan berikut:
-■ Harga <= Rp 50.000 -> laba 10%
-■ Harga > Rp 50.000 - 100.000 -> laba 15%
-■ Harga > Rp 100.000 - 300.000 -> laba 20%
-■ Harga > Rp 300.000 - 500.000 -> laba 25%
-■ Harga > Rp 500.000 -> laba 30%,
-● nett_sales : harga setelah diskon, didapatkan dengan dengan ketentuan berikut: actual_price * (100% - discount_percentage)
-● nett_profit : keuntungan yang diperoleh Kimia Farma, didapatkan dengan ketentuan berikut: nett_sales * persentase_gross_laba
-● rating_transaksi : penilaian konsumen terhadap transaksi yang dilakukan.
+* transaction_id : kode id transaksi, 
+* date : tanggal transaksi dilakukan, 
+* branch_id : kode id cabang Kimia Farma, 
+* branch_name : nama cabang Kimia Farma, 
+* kota : kota cabang Kimia Farma, 
+* provinsi : provinsi cabang Kimia Farma,
+* rating_cabang : penilaian konsumen terhadap cabang Kimia Farma
+* customer_name : Nama customer yang melakukan transaksi,
+* product_id : kode product obat,
+* product_name : nama obat, 
+* actual_price : harga obat, 
+* discount_percentage : Persentase diskon yang diberikan pada obat, 
+* persentase_gross_laba : Persentase laba yang seharusnya diterima dari obat dengan ketentuan berikut:
+    - Harga <= Rp 50.000 -> laba 10%
+    - Harga > Rp 50.000 - 100.000 -> laba 15%
+    - Harga > Rp 100.000 - 300.000 -> laba 20%
+    - Harga > Rp 300.000 - 500.000 -> laba 25%
+    - Harga > Rp 500.000 -> laba 30%,
+* nett_sales : harga setelah diskon, didapatkan dengan dengan ketentuan berikut: actual_price * (100% - discount_percentage)
+* nett_profit : keuntungan yang diperoleh Kimia Farma, didapatkan dengan ketentuan berikut: nett_sales * persentase_gross_laba
+* rating_transaksi : penilaian konsumen terhadap transaksi yang dilakukan.
 
 Terdapat juga dua kolom yang tidak termasuk kolom-kolom mandatory, yaitu:
-● opname_stock: jumlah stok produk obat. (untuk memenuhi salah satu persyaratan challenge ke-2, "membuat tabel analisa berdasarkan hasil aggregasi dari ke-empat tabel yang sudah diimpor sebelumnya" )
-● province_average_transaction_rank: ranking provinsi berdasarkan rata-rata rating_transaksi pada provinsi tersebut. (untuk memenuhi salah satu challenge ke-3. "Top 5 Cabang Dengan Rating Tertinggi, namun Rating Transaksi Terendah")
+* opname_stock: jumlah stok produk obat. (untuk memenuhi salah satu persyaratan challenge ke-2, "membuat tabel analisa berdasarkan hasil aggregasi dari ke-empat tabel yang sudah diimpor sebelumnya" )
+* province_average_transaction_rank: ranking provinsi berdasarkan rata-rata rating_transaksi pada provinsi tersebut. (untuk memenuhi salah satu challenge ke-3. "Top 5 Cabang Dengan Rating Tertinggi, namun Rating Transaksi Terendah")
 
 #### SQL Query
 ```
