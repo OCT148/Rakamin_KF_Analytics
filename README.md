@@ -152,3 +152,50 @@ ON
 ```
 
 ### 3. Dashboard
+Dibuat sebuah dashboard analisis kinerja Kimia Farma tahun 2020-2023 menggunakan Google Looker Studio berdasarkan tabel analisa yang telah dibuat sebelumnya. Berikut merupakan dashboard yang telah dibuat:
+
+![Screenshot (4446)](https://github.com/user-attachments/assets/d462c730-7027-4576-88b2-74f780918bbe)
+
+**Date Range (Date Control)**
+Filter untuk memilih jangka waktu data dalam bentuk kalender. Default Januari 2020 - 31 Desember 2023.
+**Province (Dropdown Checkbox)**
+Filter untuk memilih provinsi dalam bentuk dropdown checkbox. Default semua provinsi.
+**Product Name (Dropdown Checkbox)**
+Filter untuk memilih nama produk dalam bentuk dropdown checkbox. Default semua nama produk.
+
+![Screenshot (4447)](https://github.com/user-attachments/assets/4a2ea8d2-e822-4711-b494-a05c7e530434)
+
+**Total Transactions (Scorecard)**
+Banyak Total transaksi.
+**Total Revenue (Scorecard)**
+Jumlah total pendapatan.
+**Avg Transaction Value (Scorecard)**
+Rata-rata pembayaran transaksi.
+**Avg Transaction Rating(Scorecard)**
+Rata-rata rating transaksi.
+
+![Screenshot (4439)](https://github.com/user-attachments/assets/0d6ea39f-d5b7-4d52-869e-5879ee57ef09)
+
+**Year-to-Year Revenue Comparison (Bar Graph)**
+Persentase perbedaan pendapatan dibandingkan dengan tahun sebelumnya.
+**Month-by-Month Revenue Comparison (Line Graph)**
+Perbandingan pendapatan per-bulan masing-masing tahun.
+
+![Screenshot (4440)](https://github.com/user-attachments/assets/2b04e64a-8862-4177-be33-dc2d7903a972)
+
+**Top 10 Total Transaction by Province (Bar Graph)**
+Bar graph yang menunjukan sepuluh cabang provinsi dengan banyak transaksi tertinggi,
+**Top 10 Nett Sales by Province (Bar Graph)**
+Bar graph yang menunjukan sepuluh cabang provinsi dengan total Nett Sales tertinggi,
+
+![Screenshot (4448)](https://github.com/user-attachments/assets/44dd66aa-1d44-4afb-a035-1d58de48cc49)
+
+**Top 5 Provinces Rating with Low Transactions Rating (Bar Graph)**
+Bar graph yang menunjukan lima cabang provinsi dengan rata-rata rating transaksi terendah, diurutkan berdasarkan rating cabang.    
+**Percentage of Sales by Product Names (Pie Chart)**
+Pie Chart yang menggambarkan persentase kontribusi sebuah produk terhadap total pendapatan
+
+![Screenshot (4442)](https://github.com/user-attachments/assets/8c12cb98-ffd6-4690-960f-a39b703b4944)
+
+**Total Profit by Provinces (Geo Map)**
+Geo map yang menunjukkan total profit yang diperoleh dari setiap provinsi Indonesia, berdasarkan distribusi profit di setiap provinsi.
