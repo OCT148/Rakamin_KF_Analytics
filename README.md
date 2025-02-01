@@ -66,7 +66,6 @@ Berikut adalah kolom-kolom pada tabel analisa yang dibutuhkan untuk memenuhi cha
 * rating_transaksi : penilaian konsumen terhadap transaksi yang dilakukan.
 
 Terdapat juga dua kolom yang tidak termasuk kolom-kolom mandatory, yaitu:
-* opname_stock: jumlah stok produk obat. (untuk memenuhi salah satu persyaratan challenge ke-2, "membuat tabel analisa berdasarkan hasil aggregasi dari ke-empat tabel yang sudah diimpor sebelumnya" )
 * province_average_transaction_rank: ranking provinsi berdasarkan rata-rata rating_transaksi pada provinsi tersebut. (untuk memenuhi salah satu challenge ke-3. "Top 5 Cabang Dengan Rating Tertinggi, namun Rating Transaksi Terendah")
 
 #### SQL Query
@@ -84,10 +83,9 @@ SELECT
     t2.provinsi  ,                       -- Provinsi cabang Kimia Farma
     t2.rating AS rating_cabang,          -- Penilaian konsumen terhadap cabang Kimia Farma
     t1.product_id,                       -- Kode product obat
-    t3.product_name,                     -- Nama obat
-    t1.price AS actual_price,            -- Harga obat,
+    t4.product_name,                     -- Nama obat
+    t3.price AS actual_price,            -- Harga obat,
     t1.discount_percentage,              -- Persentase diskon yang diberikan pada obat
-    t4.opname_stock,                     -- Jumlah stok produk obat
     
     -- Perhitungan persentase_gross_laba
     CASE
@@ -133,7 +131,13 @@ JOIN
 ON 
     t1.branch_id = t4.branch_id AND t1.product_id = t4.product_id;
 
--- Query 2: Menambahkan ranking provinsi ke tabel analysis_table
+-- Query 2: Menghapus data duplicate
+-- Query menghapus duplicates pada data.
+CREATE OR REPLACE TABLE rakamin-kf-analytics-448909.kimia_farma.analysis_table AS
+SELECT DISTINCT *
+FROM rakamin-kf-analytics-448909.kimia_farma.analysis_table;
+
+-- Query 3: Menambahkan ranking provinsi ke tabel analysis_table
 -- Query menambahkan kolom province_average_ratings_rank ke tabel analysis_table berdasarkan rata-rata rating_transaksi provinsi
 CREATE OR REPLACE TABLE rakamin-kf-analytics-448909.kimia_farma.analysis_table AS
 WITH ranked_provinces AS (
