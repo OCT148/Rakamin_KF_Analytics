@@ -149,5 +149,6 @@ JOIN
   ranked_provinces t2
 ON 
   t1.provinsi = t2.provinsi;
+```
 
 ### 3. Dashboard
