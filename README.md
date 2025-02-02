@@ -209,3 +209,19 @@ Pie Chart yang menggambarkan persentase kontribusi sebuah produk terhadap total 
 
 **Total Profit by Provinces (Geo Map)**
 Geo map yang menunjukkan total profit yang diperoleh dari setiap provinsi Indonesia, berdasarkan distribusi profit di setiap provinsi.
+
+#### Analisis
+* Daerah Pulau Jawa memiliki dominasi yang kuat, terutama Jawa Barat yang memimpin dalam volume transaksi dan pendapatan.
+* 47.1% total pendapatan didorong oleh tiga produk, yaitu:
+    - Psycholeptics drugs, Hypnotics and sedatives drugs (17.1%)
+    - Psycholeptics drugs, Anxiolytic drugs (16.5%)
+    - Other analgesics and antipyretics, Salicylic acid and derivatives (13.5%)
+* Terdapat konsentrasi yang tinggi pada obat Psycholeptics, keduanya memberikan 33.6% total pendapatan
+* Total pendapatan 321,17 milyar, dengan pendapatan kurang lebih 80.3 milyar per tahun.
+* Pendapatan tahun ke tahun yang stabil, dengan variasi di bawah 1%.
+* Kepuasan pelanggan kuat, dengan rating transaksi rata-rata 4,0 secara keseluruhan dan pada setiap cabang provinsi.
+
+#### Rekomendasi
+* Melakukan expansi pada provinsi dengan potensi pertumbuhan dan menunjukan rating cabang yang tinggi.
+* Analisis faktor-faktor kesuksesan dari wilayah yang berkinerja tinggi untuk direplikasi ke wilayah lain.
+* Mendukung pertumbuhan pada cabang provinsi dengan volume transaksi yang rendah.
